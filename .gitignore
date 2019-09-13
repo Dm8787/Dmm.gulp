@@ -1,0 +1,7 @@
+# Folder node_modules
+node_modules/
+
+# json-files
+*.json
+
+gulpfile.js
