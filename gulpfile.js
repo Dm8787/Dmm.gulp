@@ -1,6 +1,9 @@
 "use strict";
 
-const { src, dest } = require("gulp");
+const {
+  src,
+  dest
+} = require("gulp");
 const gulp = require("gulp");
 const autoprefixer = require("gulp-autoprefixer");
 const cssbeautify = require("gulp-cssbeautify");
@@ -39,10 +42,23 @@ var path = {
 };
 
 function html() {
-  return src(path.src.html, { base: "src/" })
-  .pipe(plumber())
-  .pipe(dest(path.build.html))
-  .pipe();
+  return src(path.src.html, {
+      base: "src/"
+    })
+    .pipe(plumber())
+    .pipe(dest(path.build.html));
+}
+
+function css() {
+  return src(path.src.css, {
+      base: "src/assest/sass/"
+    })
+    .pipe(plumber())
+    .pipe(sass())
+    .pipe(autoprefixer())
+    .pipe(cssbeautify())
+    .pipe(dest(path.build.css));
 }
 
 exports.html = html;
+exports.css = css;
