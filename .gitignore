@@ -2,6 +2,9 @@
 node_modules/
 
 # json-files
-*.json
+package-lock.json
+
+# dist
+dist/
 
 
